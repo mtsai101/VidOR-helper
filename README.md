@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset
-After installing the requirements, let's download the [VidOR dataset] (https://xdshang.github.io/docs/vidor.html#downloads) provided by Shang et al.
+After installing the requirements, let's download the [VidOR dataset](https://xdshang.github.io/docs/vidor.html#downloads) provided by Shang et al.
 The recommand structure after you download all the videos and annotation is like:
 ```
 VidVOR-helper
