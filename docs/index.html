@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <title>ACM'MM 2020 Video Relation Understanding Challenge</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ACM Multimedia'20 Grand Challenge">
+        <base href="mm20-gdc/" />
+
+        <link href="styles/bootstrap.min.css" rel="stylesheet">
+        <link href="styles/common.css" rel="stylesheet">
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h2 class="navbar-brand hidden-xs hidden-sm" style="padding-top: 0px;padding-bottom: 0px;height: 30px;line-height: 35px">
+                        <span class="logo">Video Relation Understanding</span>
+                    </h2>
+                    <h5 class="hidden-xs hidden-sm" style="margin-bottom: 0px">
+                        <span style="color:#003d7c !important;">ACM Multimedia 2020 Grand Challenge</span>
+                    </h5>
+                    <h2 class="navbar-brand hidden-md hidden-lg">
+                        <span class="logo">VRU Challenge</span>
+                    </h2>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#introduction">Introduction</a></li>
+                        <li><a class="page-scroll" href="#participation">Participation</a></li>
+                        <li><a class="page-scroll" href="#leaderboard">Leaderboard</a></li>
+                        <li><a class="page-scroll" href="#timeline">Timeline</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section id="news" class="scrollable-section">
+            <div class="container">
+                <h3>News</h3>
+                <ul style="list-style-type:circle;">
+                    <li>
+                        We'd like to thank YouTube for sponsoring a total of $1000 prize to VRU'20 grand challenge. The awards will be announced during ACM MM'20 conference.
+                    </li>
+                    <li>
+                        The final leaderboard has been released. Appreciate all the participants' efforts and congratulations to the winners !!!
+                    </li>
+                    <li>
+                        Testing videos have been released to the registered participants.
+                    </li>
+                    <li>
+                        Submission server fully opened. Submit your first result to compete with others in validation score !
+                    </li>
+                    <li>
+                        Please keep update to the latest evaluation code
+                        <a href="https://github.com/NExTplusplus/VidVRD-helper" target="_blank">here</a>.
+                    </li>
+                    <li>
+                        Registration extended to 29 May. Hurry up !
+                    </li>
+                    <li>
+                        Precomputed features and trajectories released, and you can find them
+                        <a href="task1.html">here</a>.
+                    </li>
+                    <li>
+                        Welcome to this year’s VRU challenge, and it's open for registration now !!!
+                        (click <a class="page-scroll" href="#participation">here</a> to see how to register)
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="introduction" class="scrollable-section">
+            <div class="container">
+                <h3>Introduction</h3>
+                <p>
+                    Although the recent advance in computer vision has effectively boosted the performance of multimedia
+                    systems, a core question still cannot be explicitly answered: Does the machine understand what is
+                    happening in a video, and are the results of the analysis interpretable by human users? Another way to
+                    look at the limitation is to evaluate how many facts the machine can recognize from a video. In many
+                    AI and knowledge-based systems, a fact is represented by a relation between a subject entity and an
+                    object entity <i>(a.k.a. &lt;subject,predicate,object&gt;)</i>, which forms the fundamental building block for 
+                    complex inferences and decision-making tasks.
+                </p>
+                <p>
+                    As a key aspect of recognizing facts, Video Relation Understanding (VRU) is very challenging since it requires
+                    the system to understand many perspectives of the two entities, including appearance, action, speech,
+                    and interactions between them. In order to detect and recognize the relations in videos accurately, a
+                    system must recognize not only the features in these perspectives, but also the large variance in relation
+                    representation. This year’s VRU challenge encourages researchers to explore and develop innovative models and 
+                    algorithms to detect object entities and the relationships between each pair of them in a given video. 
+                </p>
+                <h5>
+                    <a href="https://xdshang.github.io/docs/vidor.html" style="color: #ff6600;"><i>Dataset: VidOR</i></a>
+                </h5>
+                <p>
+                    This benchmark dataset contains 10,000 user-generated videos (98.6 hours) from YFCC100M.
+                    It is spatial-temporally annotated with 80 categories of objects 
+                    <i>(e.g. adult, dog, toy)</i> and 50 categories of relationships <i>(e.g. next to, watch, hold)</i>. 
+                </p>
+                <h5>
+                    <a href="task1.html" style="color: #e30000;"><i>Main Task: Video Relation Detection</i></a>
+                </h5>
+                <p>
+                    This task is to detect relation triplets <i>(i.e. &lt;subject,predicate,object&gt;)</i> of interest and 
+                    spatio-temporally localize the subject and object of each detected relation triplet using bounding-box trajectories.
+                    For each testing video, we compute Average Precision to evaluate the detection performance and rank according 
+                    to the mean AP over all the testing videos.
+                </p>
+                <h5>
+                    <a href="task2.html"><i>Optional Task: Video Object Detection</i></a>
+                </h5>
+                <p>
+                    As the first step in relation detection, this task is to detect objects of certain categories
+                    and spatio-temporally localize each detected object using a bounding-box trajectory in videos.
+                    For each object category, we compute Average Precision to evaluate the detection performance
+                    and rank according to the mean AP over all the categories.
+                </p>
+            </div>
+        </section>
+
+        <section id="participation" class="scrollable-section">
+            <div class="container">
+                <h3>Participation</h3>
+                <p>
+                    This challenge is a team-based competition. Each team can have one or more members, and an individual cannot
+                    be a member of multiple teams. To register, please create an account and form teams in the 
+                    <a href="https://submission.nextcenter.org/" target="_blank">submission server</a>.
+                    More guides to the usage of the server can be found in <a class="black" href="faq.html">FAQs</a>.
+                    <b>Note that each team must select a final submission in the server before the submission deadline</b>,
+                    and we will conduct a final evaluation based on the selection.
+                </p>
+                <p>
+                    At the end of the challenge, all teams will be ranked based on the objective evaluation metrics,
+                    and the leaderboard of both tasks will be public on this website.
+                    To be eligible for ACM MM'20 grand challenge award competition, each team need further submit 
+                    a 4-page overview paper (plus 1-page reference) to the conference's grand challenge track.
+                    The top three teams in terms of both the solution novelty and the ranking in the main task 
+                    will receive award certificates.
+                </p>
+            </div>
+        </section>
+
+        <section id="leaderboard" class="scrollable-section">
+            <div style="background-color: #e8e8e8">
+                <div class="container">
+                    <h3>Leaderboard</h3>
+                    <br>
+                    <h4>
+                        Main Task: Video Relation Detection
+                    </h4>
+                    <div class="table-responsive">
+                    <table class="table well text-center">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">Rank</th>
+                            <th class="text-center">Team Name</th>
+                            <th class="text-center">Performance: <a href="task1.html#evaluation">mean AP</a>*</th>
+                            <th class="text-center">Team Members</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>colab-BUAA</td>
+                            <td>0.1174</td>
+                            <td>
+                                Wentao Xie, Guanghui Ren, Si Liu
+                                <br><small>Beihang University & YITU Technology</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>ETRI_DGRC</td>
+                            <td>0.0665</td>
+                            <td>
+                                Kwang-Ju Kim, Pyong-Kun Kim, Kil-Taek Lim, Jong Taek Lee
+                                <br><small>Electronics and Telecommunications Research Institute</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fudan-BigVid</td>
+                            <td>0.0599</td>
+                            <td>
+                                Zixuan Su, Jingjing Chen, Yu-Gang Jiang
+                                <br><small>Fudan University</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>GKBU</td>
+                            <td>0.0328</td>
+                            <td>Renmin University of China</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>DeepBlueAI</td>
+                            <td>0.0024</td>
+                            <td>DeepBlue Technology (Shanghai) Co., Ltd</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <h4>
+                        Optional Task: Video Object Detection
+                    </h4>
+                    <div class="table-responsive">
+                    <table class="table well text-center">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">Rank</th>
+                            <th class="text-center">Team Name</th>
+                            <th class="text-center">Performance: <a href="task2.html#evaluation">mean AP</a>*</th>
+                            <th class="text-center">Team Members</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>DeepBlueAI</td>
+                            <td>0.0966</td>
+                            <td>
+                                Zhipeng Luo, Zhiguang Zhang, Lixuan Che, Yuehan Yao, Zhenyu Xu
+                                <br><small>DeepBlue Technology (Shanghai) Co., Ltd</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>IVL</td>
+                            <td>0.0742</td>
+                            <td>
+                                Jinjin Shi, Zhihao Chen, Youxin Chen
+                                <br><small>Samsung</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ARC</td>
+                            <td>0.0071</td>
+                            <td>
+                                Lijian Lin
+                                <br><small>Xiamen University</small>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <p>
+                        * The two <i>mean AP</i> metrics are computed in different way. Please look for the evaluation
+                        details in each task description.
+                    </p>
+                    <p>
+                        ** This year's challenge has 41 registered teams from around the world. However, due to the big challenges 
+                        in both the tasks and dataset as well as the difficult COVID-19 period, only a few outstanding teams successfully submitted results by the final deadline.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="scrollable-section">
+            <div class="container">
+                <h3>Timeline</h3>
+                <ul>
+                    <li>March 10, 2020: Website ready and call for registration</li>
+                    <li>March 31, 2020: Precomputed features and trajectories release</li>
+                    <li>April 29, 2020: Submission server fully open</li>
+                    <li>May 29, 2020: Registration close; testing videos release to the registered participants</li>
+                    <li>June 29, 2020, 23:59 AoE: submission deadline; submission server close</li>
+                    <li>July 1, 2020: Final evaluation results announce on the website</li>
+                    <li>July 13, 2020: Paper submission deadline</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="scrollable-section">
+            <div class="container">
+                <h3>Organizers</h2>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <a href="https://xdshang.github.io/" target="_blank">
+                            <div class="organizer-image">
+                                <img src="assets/Shang-Xindi.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Xindi Shang</h4>
+                                <p class="organizer-affiliate">National University of Singapore</p>
+                            </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <a href="http://bio.duxy.me/" target="_blank">
+                            <div class="organizer-image">
+                                <img src="assets/Du-Xiaoyu.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Xiaoyu Du</h4>
+                                <p class="organizer-affiliate">National University of Singapore</p>
+                            </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <a href="https://software.nju.edu.cn/rentw/" target="_blank">
+                            <div class="organizer-image">
+                                <img src="assets/Ren-Tongwei.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Tongwei Ren</h4>
+                                <p class="organizer-affiliate">Nanjing University</p>
+                            </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <a href="https://github.com/jonathanstaniforth" target="_blank">
+                            <div class="organizer-image">
+                                <img src="assets/Staniforth-Jonathan.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Jonathan Staniforth</h4>
+                                <p class="organizer-affiliate">National University of Singapore</p>
+                            </div>
+                            </a>
+                        </div>
+            
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <div class="organizer-image">
+                                <img src="assets/Xiao-Junbin.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Junbin Xiao</h4>
+                                <p class="organizer-affiliate">National University of Singapore</p>
+                            </div>
+                            </a>
+                        </div>
+                        
+                        <div class="col-6 col-sm-4 section-column organizer">
+                            <a href="https://www.chuatatseng.com/" target="_blank">
+                            <div class="organizer-image">
+                                <img src="assets/Chua-TatSeng.png" class="img-responsive organizer-avatar" width="80%" height="auto">
+                            </div>
+                            <div class="organizer-meta">
+                                <h4 class="organizer-name">Tat-Seng Chua</h4>
+                                <p class="organizer-affiliate">National University of Singapore</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <p>
+                    For general information about this challenge, please contact:
+                    <ul>
+                        <li>Xindi Shang and Xiaoyu Du</li>
+                        <li><a href="mailto:shangxin@comp.nus.edu.sg,dcsduxi@nus.edu.sg">
+                            shangxin@comp.nus.edu.sg, dcsduxi@nus.edu.sg
+                        </a></li>
+                    </ul>
+                    For information about the main task, please contact:
+                    <ul>
+                        <li>Tongwei Ren and Xindi Shang</li>
+                        <li><a href="mailto:rentw@nju.edu.cn,shangxin@comp.nus.edu.sg">
+                            rentw@nju.edu.cn, shangxin@comp.nus.edu.sg
+                        </a></li>
+                    </ul>
+                    For information about the optional task, please contact:
+                    <ul>
+                        <li>Junbin Xiao</li>
+                        <li><a href="mailto:xiaojunbin@u.nus.edu">xiaojunbin@u.nus.edu</a></li>
+                    </ul>
+                    For reporting issue on the submission server, please contact:
+                    <ul>
+                        <li>Jonathan Staniforth and Xiaoyu Du</li>
+                        <li><a href="mailto:dcsjon@nus.edu.sg,dcsduxi@nus.edu.sg">
+                            dcsjon@nus.edu.sg, dcsduxi@nus.edu.sg
+                        </a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <section id="sponsor" class="scrollable-section">
+            <div class="container">
+                <h3>Sponsors</h3>
+                <a href="https://www.youtube.com" target="_blank">
+                    <img src="assets/yt_logo_rgb_light.png" style="max-width: 350px; margin-top: 10px;">
+                </a>
+            </div>
+        </section>
+
+        <section id="previous" class="scrollable-section">
+            <div class="container">
+                <h3>Previous Years</h3>
+                <ul>
+                    <li><a href="https://videorelation.nextcenter.org/mm19-gdc/" target="_blank">ACM Multimedia 2019 Grand Challenge</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer" style="padding-top: 50px;">
+            <div class="container">
+                <hr>
+                <p style="font-style: italic; text-align: center">
+                    Copyright &copy; 2018-2020 NExT++ /
+                    <a class="black" href="http://www.nextcenter.org/privacy-policy">Privacy Policy</a> /
+                    <a class="black" href="http://www.nextcenter.org/terms-conditions">Terms &amp; Conditions</a> /
+                    <a class="black" href="faq.html">FAQs</a>
+                </p>
+            </div>
+        </footer>
+
+        <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="scripts/scrolling-nav.js"></script>
+    </body>
+</html>

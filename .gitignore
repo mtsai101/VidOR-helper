@@ -1,0 +1,11 @@
+*.pyc
+__pycache__/
+
+.vscode/
+.DS_Store
+vidvrd-dataset-zip/*
+vidvrd-dataset/*
+vidor-dataset/*
+vidor-baseline-output/*
+vidvrd-baseline-output/*
+venv/*
