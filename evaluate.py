@@ -21,7 +21,7 @@ def evaluate_relation(dataset, split, prediction, eval_single):
     if eval_single:
         vid_list = prediction.keys()
     else:
-        vid_list = ataset.get_index(split)
+        vid_list = dataset.get_index(split)
     for vid in vid_list:
         groundtruth[vid] = dataset.get_relation_insts(vid)
 
